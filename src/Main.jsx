@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql, from } from "@apollo/client";
+import LoadingSpinner from "spinner";
 // import { parse } from "json2csv";
 
 const Main = () => {
@@ -14,29 +15,24 @@ const Main = () => {
     }
   }
   `);
-  const [fields, setFields] = useState(["id", "aoRewardRate", "tinRewardRate", "dropRewardRate"]);
+  const [copied, setCopied] = useState(false);
+  const [exporting, setExporting] = useState(false);
+  const [results, setResults] = useState("");
 
-  let client;
-  useEffect(() => {}, [setQueryUrl]);
-
-  useEffect(() => {
-    client = new ApolloClient({
+  const exportQuery = () => {
+    setExporting(true);
+    setCopied(false);
+    const client = new ApolloClient({
       uri: queryUrl,
       cache: new InMemoryCache({
         addTypename: false,
       }),
     });
-  }, []);
-
-  const exportQuery = () => {
-    console.log(queryString);
     client
       .query({
         query: gql(queryString),
       })
       .then((result) => {
-        // console.log(JSON.stringify(result.data.rewardDayTotals));
-        // console.log(parse(JSON.stringify(result.data.rewardDayTotals), opts));
         json2csv(result.data);
       });
   };
@@ -61,23 +57,59 @@ const Main = () => {
       }
       output += "\n";
     }
+    navigator.clipboard.writeText(output);
+    setResults(output);
+    setExporting(false);
     console.log(output);
   };
 
+  const copy2clip = () => {
+    navigator.clipboard.writeText(results);
+    setCopied(true);
+  };
+
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      <h3>Query URL</h3>
-      <input className="flex" value={queryUrl} onChange={(e) => setQueryUrl(e.target.value)} />
-      <h3>Query</h3>
-      <textarea
-        className="flex"
-        value={queryString}
-        rows={30}
-        cols={30}
-        onChange={(e) => setQueryString(e.target.value)}
-      />
-      <div className="flex" style={{ marginTop: "20px" }}>
-        <button onClick={exportQuery}>Export</button>
+    <div style={{ display: "flex", flexDirection: "row", maxHeight: "100vh" }}>
+      <div
+        style={{
+          flex: "0 0 auto",
+          display: "flex",
+          flexDirection: "column",
+          minWidth: "50%",
+          maxHeight: "100%",
+        }}
+      >
+        <h3>Query URL</h3>
+        <input
+          className="flex"
+          style={{ maxHeight: "1rem", margin: "0 4rem" }}
+          value={queryUrl}
+          onChange={(e) => setQueryUrl(e.target.value)}
+        />
+        <h3>Query</h3>
+        <textarea
+          className="flex"
+          value={queryString}
+          rows={30}
+          cols={60}
+          onChange={(e) => setQueryString(e.target.value)}
+        />
+        <div className="flex" style={{ marginTop: "20px" }}>
+          <button onClick={exportQuery}>
+            {!!!exporting && "Export"}
+            {!!exporting && <LoadingSpinner />}
+          </button>
+        </div>
+      </div>
+      <div style={{ flex: "1 1 auto", display: "flex", flexDirection: "column" }}>
+        <h3>Query Results</h3>
+        {!!results && (
+          <button className="flex" style={{ marginBottom: "20px" }} onClick={copy2clip}>
+            {!!!copied && "Copy to clipboard"}
+            {!!copied && "Copied!"}
+          </button>
+        )}
+        <div>{results}</div>
       </div>
     </div>
   );
