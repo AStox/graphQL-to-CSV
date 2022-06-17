@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/graphQL-to-CSV/static/css/main.6e8201be.css",
-    "main.js": "/graphQL-to-CSV/static/js/main.9f4ac5fe.js",
+    "main.css": "/graphQL-to-CSV/static/css/main.b550ecf5.css",
+    "main.js": "/graphQL-to-CSV/static/js/main.9e18eb40.js",
     "static/js/787.71d0f8da.chunk.js": "/graphQL-to-CSV/static/js/787.71d0f8da.chunk.js",
     "index.html": "/graphQL-to-CSV/index.html",
-    "main.6e8201be.css.map": "/graphQL-to-CSV/static/css/main.6e8201be.css.map",
-    "main.9f4ac5fe.js.map": "/graphQL-to-CSV/static/js/main.9f4ac5fe.js.map",
+    "main.b550ecf5.css.map": "/graphQL-to-CSV/static/css/main.b550ecf5.css.map",
+    "main.9e18eb40.js.map": "/graphQL-to-CSV/static/js/main.9e18eb40.js.map",
     "787.71d0f8da.chunk.js.map": "/graphQL-to-CSV/static/js/787.71d0f8da.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.6e8201be.css",
-    "static/js/main.9f4ac5fe.js"
+    "static/css/main.b550ecf5.css",
+    "static/js/main.9e18eb40.js"
   ]
 }
