@@ -57,7 +57,6 @@ const Main = () => {
       }
       output += "\n";
     }
-    navigator.clipboard.writeText(output);
     setResults(output);
     setExporting(false);
     console.log(output);
