@@ -82,7 +82,7 @@ const Main = () => {
         <h3>Query URL</h3>
         <input
           className="flex"
-          style={{ maxHeight: "1rem", margin: "0 4rem" }}
+          style={{ maxHeight: "1rem", margin: "0 10rem" }}
           value={queryUrl}
           onChange={(e) => setQueryUrl(e.target.value)}
         />
@@ -91,7 +91,7 @@ const Main = () => {
           className="flex"
           value={queryString}
           rows={30}
-          cols={60}
+          cols={70}
           onChange={(e) => setQueryString(e.target.value)}
         />
         <div className="flex" style={{ marginTop: "20px" }}>
