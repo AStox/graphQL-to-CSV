@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/graphQL-to-CSV/static/css/main.b550ecf5.css",
-    "main.js": "/graphQL-to-CSV/static/js/main.49445d87.js",
+    "main.js": "/graphQL-to-CSV/static/js/main.8c5182ce.js",
     "static/js/787.71d0f8da.chunk.js": "/graphQL-to-CSV/static/js/787.71d0f8da.chunk.js",
     "index.html": "/graphQL-to-CSV/index.html",
     "main.b550ecf5.css.map": "/graphQL-to-CSV/static/css/main.b550ecf5.css.map",
-    "main.49445d87.js.map": "/graphQL-to-CSV/static/js/main.49445d87.js.map",
+    "main.8c5182ce.js.map": "/graphQL-to-CSV/static/js/main.8c5182ce.js.map",
     "787.71d0f8da.chunk.js.map": "/graphQL-to-CSV/static/js/787.71d0f8da.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.b550ecf5.css",
-    "static/js/main.49445d87.js"
+    "static/js/main.8c5182ce.js"
   ]
 }
